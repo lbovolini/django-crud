@@ -1,0 +1,61 @@
+{% extends 'app/base.html' %} {% block content %}
+
+<div class="content py-5">
+
+    <!-- Page Heading -->
+    <h1 class="container py-2">Character details</h1>
+    <div class="container content-main">
+        <form class="d-block" action="" method="POST" id="character_form" novalidate>
+            <fieldset disabled>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label for="id_first_name" class="col-form-label">First name</label>
+                        <input type="text" class="form-control" name="first_name" value="{{ character.first_name }}" maxlength="30" required id="id_first_name"
+                            />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="id_last_name" class="col-form-label">Last name</label>
+                        <input type="text" class="form-control" name="last_name" value="{{ character.last_name }}" maxlength="30" required id="id_last_name"
+                             />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="id_gender" class="col-form-label">Gender</label>
+                        <select class="form-control" name="gender" required id="id_gender">
+                                <option value="" {% if character.gender == "" %} selected {% endif %}>---------</option>
+                                <option value="F" {% if character.gender == "F" %} selected {% endif %}>Female</option>
+                                <option value="M" {% if character.gender == "M" %} selected {% endif %}>Male</option>
+                            </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="id_age" class="col-form-label">Age</label>
+                        <input type="number" class="form-control" name="age" value="{{ character.age }}" required id="id_age"
+                        />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="id_occupation" class="col-form-label">Occupation</label>
+                        <input type="text" class="form-control" name="occupation" value="{{ character.occupation }}" maxlength="30" required id="id_occupation"
+                           />
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-row mt-5">
+                <div class="form-group col-md-6 text-right" role="group">
+                    <!-- Cancel buttton -->
+                    <a role="button" href="/" class="btn btn-primary col-md-2 mr-2">Cancel</a>
+                    <!-- Delete buttton -->
+                    <a role="button" href="{% url 'character_remove' pk=character.pk %}" class="btn btn-danger col-md-2 mr-2">Delete</a>
+                    <!-- Edit buttton -->
+                    <a role="button" href="{% url 'character_edit' pk=character.pk %}" class="btn btn-success col-md-2">Editar</a>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <br class="clear" />
+</div>
+
+{% endblock %}
