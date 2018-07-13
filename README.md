@@ -1,52 +1,52 @@
-## Walkthrough
+# Walkthrough
 
 install python
 install pip
 pip install pylint
 
-# Criar virtualenv
+## Criar virtualenv
 python -m venv djangoenv
 
-# Executar
+## Executar
 source djangoenv/bin/activate
 
-# Instalar Django
+## Instalar Django
 pip install django
 
 pip freeze > requirements.txt
 
-# Começar um novo projeto Django
+## Começar um novo projeto Django
 django-admin startproject southpark
 
-# Alterar time zone em settings.py e adicionar caminho para arquivos estaticos
+## Alterar time zone em settings.py e adicionar caminho para arquivos estaticos
 'America/Sao_Paulo'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Criar bando de dados
+## Criar bando de dados
 python manage.py migrate
 
-# Iniciar o servidor web para testar a aplicacao
+## Iniciar o servidor web para testar a aplicacao
 python manage.py runserver
 
-# Acessar o endereco
+## Acessar o endereco
 http://127.0.0.1:8000/
 
-# Criar aplicativo 
+## Criar aplicativo 
 python manage.py startapp app
 
-# No arquivo southpark/settings.py, encontrar o INSTALLED_APPS e adicionar uma linha com 'app', logo acima do ).
+## No arquivo southpark/settings.py, encontrar o INSTALLED_APPS e adicionar uma linha com 'app', logo acima do ).
 
-# Criar modelo
-# Atualizar mudancas
+## Criar modelo
+## Atualizar mudancas
 python manage.py makemigrations app
 python manage.py migrate app
 
-# Registrar model em app/admin.py
+## Registrar model em app/admin.py
 
-# Criar superuser
+## Criar superuser
 python manage.py createsuperuser
 
-# Registrar url
+## Registrar url
 
 # Links úteis
 
